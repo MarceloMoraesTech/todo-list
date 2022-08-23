@@ -1,5 +1,6 @@
 import express from 'express';
-import { getUsers } from './config/db';
+import { getAllTasks } from './config/db';
+import { getTaskById } from './config/db';
 import bodyParser from 'body-parser';
 
 const port = 5000;
@@ -15,7 +16,9 @@ app.get('/', (_req, res) => {
   //res.end('Hello Marcelo!');
 });
 
-app.get('/tasks',getUsers);
+app.get('/tasks',getAllTasks);
+
+app.get('/tasks',getTaskById);
 
 app.listen(port, () => {
   /* if (err) throw err; */

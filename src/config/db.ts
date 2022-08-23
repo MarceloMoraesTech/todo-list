@@ -11,7 +11,7 @@ pool.query('SELECT * FROM TASK', (err, res) => {
     console.log(err, res)
   })
 
-export const getUsers = (request:any, response:any) => {
+export const getAllTasks = (request:any, response:any) => {
 pool.query('SELECT * FROM task', (error, results) => {
     if (error) {
     throw error
@@ -20,3 +20,11 @@ pool.query('SELECT * FROM task', (error, results) => {
 })
 }
 
+export const getTaskById = (request:any, response:any) => {
+  pool.query('SELECT * FROM task', (error, results) => {
+      if (error) {
+      throw error
+      }
+      response.status(200).json(results.rows)
+  })
+  }
