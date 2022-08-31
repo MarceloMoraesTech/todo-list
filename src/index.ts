@@ -18,7 +18,7 @@ app.get('/', (_req, res) => {
 
 app.get('/tasks',getAllTasks);
 
-app.get('/tasks',getTaskById);
+app.get('/tasks/:id',getTaskById);
 
 app.listen(port, () => {
   /* if (err) throw err; */
