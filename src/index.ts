@@ -1,5 +1,5 @@
 import express from 'express';
-import { getAllTasks } from './config/db';
+import { getAllTasks, postTask } from './config/db';
 import { getTaskById } from './config/db';
 import bodyParser from 'body-parser';
 
@@ -19,6 +19,8 @@ app.get('/', (_req, res) => {
 app.get('/tasks',getAllTasks);
 
 app.get('/tasks/:id',getTaskById);
+
+app.post('/task',postTask)
 
 app.listen(port, () => {
   /* if (err) throw err; */

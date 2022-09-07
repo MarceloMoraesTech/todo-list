@@ -24,9 +24,28 @@ pool.query('SELECT * FROM task', (error, results) => {
 export const getTaskById = (request:any, response:any) => {
 
   pool.query(`select * from task where id = '${request.params.id}'` , (error, results) => {
-      if (error) {
-      console.log('ERRO',error)//throw error
-      }
+      
+    if (error) {
+        response.status(404).send(`O id: ${request.params.id} não existe`)  
+    }
+    else {
       response.status(200).json(results.rows)
+    }     
   })
-  }
+}
+
+export const postTask = (request:any, response:any) => {
+
+  pool.query(`INSERT INTO TASK (description, duedate, status, list)
+  VALUES ('${request.body.description}', '${request.body.duedate}', '${request.body.status}', '${request.body.list}');` ,
+
+    (error, results) => {
+      
+      if (error) {
+        response.status(400).send(`Erro na conexão com o banco de dados`)  
+      }
+      else {
+        response.status(201)
+      }
+    }
+  )}
