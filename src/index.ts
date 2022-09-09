@@ -1,7 +1,6 @@
 import express from 'express';
-import { getAllTasks, postTask } from './config/db';
-import { getTaskById } from './config/db';
 import bodyParser from 'body-parser';
+import router from './routes/routes';
 
 const port = 5000;
 const app = express();
@@ -12,15 +11,7 @@ app.use(
   })
 )
 
-app.get('/', (_req, res) => {
-  //res.end('Hello Marcelo!');
-});
-
-app.get('/tasks',getAllTasks);
-
-app.get('/tasks/:id',getTaskById);
-
-app.post('/task',postTask)
+app.use('/api',router)
 
 app.listen(port, () => {
   /* if (err) throw err; */
