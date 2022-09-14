@@ -39,13 +39,13 @@ export const postTask = (request:any, response:any) => {
     )}
 
 export const updateTask = (request:any,response:any) => {
-    pool.query(`update task set description = '${request.body.description}' where id = '${request.params.id}'`,
+    pool.query(`update task set description = '${request.body.description}', duedate = '${request.body.duedate}', status = '${request.body.status}', list = '${request.body.list}' where id = '${request.params.id}'`,
     (error,results) =>{
         if(error){
             response.status(404).send(`O id: ${request.params.id} não existe`)
         } 
         else{
-            response.status(201)
+            response.status(200).json({'message':'Sucesso','body':request.body})
         }
     }
     )}
