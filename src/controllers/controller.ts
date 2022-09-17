@@ -49,3 +49,15 @@ export const updateTask = (request:any,response:any) => {
         }
     }
     )}
+ 
+export const deleteTask = (request:any,response:any) =>{
+    pool.query(`delete from task where id = '${request.params.id}'` , (error, results) => {
+        
+        if (error) {
+            response.status(404).send(`O id: ${request.params.id} não existe`)  
+        }
+        else {
+            response.status(200).json({'message':'Deletado com Sucesso'})
+        }     
+        })
+}
