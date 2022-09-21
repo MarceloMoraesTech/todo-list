@@ -1,17 +1,26 @@
-import express from 'express';
-import { deleteTask, getAllTasks, getTaskById, postTask, updateTask } from '../controllers/controller';
+import express, { response } from 'express';
+import {
+  deleteTask,
+  getAllTasks,
+  getTaskById,
+  postTask,
+  updateTask,
+} from '../controllers/controller';
 
 const router = express.Router();
-  
-router.get('/tasks',getAllTasks);
 
-router.get('/tasks/:id',getTaskById);
+router.get('/', (req: any, response: any) => {
+  response.json({ message: 'Hello World' });
+});
 
-router.post('/task',postTask);
+router.get('/tasks', getAllTasks);
 
-router.put('/tasks/:id',updateTask)
+router.get('/tasks/:id', getTaskById);
 
-router.delete('/tasks/:id',deleteTask)
+router.post('/task', postTask);
 
-export default router
-  
+router.put('/tasks/:id', updateTask);
+
+router.delete('/tasks/:id', deleteTask);
+
+export default router;

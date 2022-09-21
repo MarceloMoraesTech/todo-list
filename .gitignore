@@ -2,3 +2,6 @@ node_modules
 
 /dist
 .pnp.js
+.DS_Store
+jest.config.js
+package-lock.json
