@@ -1,11 +1,17 @@
 {
-    "compilerOptions": {
-      "target": "es2019",
-      "module": "commonjs",
-      "moduleResolution": "node",
-      "outDir": "dist",
-      "strict": true,
-      "esModuleInterop": true
-    },
-    "include": ["src/**/*"]
-  }
+  //adicionar config do jest no tsconfig
+  "exclude": ["./coverage", "./dist", "__tests__", "jest.config.js"],
+  "ts-node": {
+    "transpileOnly": true,
+    "files": true
+  },
+  "compilerOptions": {
+    "target": "es2019",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "dist",
+    "strict": true,
+    "esModuleInterop": true
+  },
+  "include": ["src/**/*"]
+}

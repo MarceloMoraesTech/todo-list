@@ -2,7 +2,9 @@ import express from 'express';
 import { deleteTask, getAllTasks, getTaskById, postTask, updateTask } from '../controllers/controller';
 
 const router = express.Router();
-  
+router.get('/',(request,response)=>{
+    response.json({message:'Hello World!'})
+})
 router.get('/tasks',getAllTasks);
 
 router.get('/tasks/:id',getTaskById);
