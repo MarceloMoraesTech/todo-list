@@ -1,0 +1,23 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "",
+		"version": "1.0.0",
+		"title": "Swagger Todo",
+		"termsOfService": "http://swagger.io/terms/",
+		"contact": {
+			"email": "apiteam@swagger.io"
+		},
+		"license": {
+			"name": "Apache 2.0",
+			"url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+		}
+	},
+	"host": "",
+	"basePath": "/api",
+	"tags": [],
+	"schemes": [
+		"http"
+	],
+	"paths": {}
+}
