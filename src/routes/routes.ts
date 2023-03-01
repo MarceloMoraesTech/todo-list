@@ -1,5 +1,5 @@
 import express from 'express';
-import { deleteTask, getAllTasks, getTaskById, postTask, updateTask } from '../controllers/controller';
+import { deleteTask, getAllTasks, getAllTasksOrdered, getTaskById, postTask, updateTask } from '../controllers/controller';
 import swaggerUi from 'swagger-ui-express';
 import swaggerJSDoc from 'swagger-jsdoc';
 import { options, swaggerSpec } from './../index';
@@ -26,6 +26,8 @@ router.get('/tasks',getAllTasks);
 
 router.get('/tasks/:id',getTaskById);
 
+router.get('/taskdate',getAllTasksOrdered); //precisa camel case aqui???
+
 router.post('/task',postTask);
 
 router.put('/tasks/:id',updateTask)
@@ -33,4 +35,3 @@ router.put('/tasks/:id',updateTask)
 router.delete('/tasks/:id',deleteTask)
 
 export default router
-  

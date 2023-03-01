@@ -62,3 +62,12 @@ export const deleteTask = (request:any,response:any) =>{
         }     
         })
 }
+
+export const getAllTasksOrdered = (request:any, response:any) => {
+    pool.query('SELECT * FROM task order by duedate', (error, results) => {
+        if (error) {
+        throw error
+        }
+        response.status(200).json(results.rows)
+    })
+    }

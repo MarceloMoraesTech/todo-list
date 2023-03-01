@@ -30,6 +30,9 @@ app.use(
     extended: true,
   })
 )
+const cors = require('cors');
+
+app.use(cors());
 app.use('/api',router)
 
 app.listen(port, () => {
